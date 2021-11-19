@@ -25,6 +25,7 @@ public class StudentService {
     }
 
 
+
     public void createStudent(Student student) {
         if (student.getFirstName().isEmpty() || student.getLastName().isEmpty() || student.getEmail().isEmpty()) {
             throw new StudentInformationIsNull("Fields: " + student.getFirstName() + student.getLastName() + student.getEmail() + "cannot be empty! Please provide a value");
