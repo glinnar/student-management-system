@@ -75,7 +75,7 @@ public class StudentService {
         }
 
         if (student.getLastName().equals(studentToUpdate.getLastName())) {
-            throw new CannotUpdateStudent("First name was not changed");
+            throw new CannotUpdateStudent("Last name was not changed");
         } else {
             studentToUpdate.setLastName(student.getLastName());
         }
@@ -92,7 +92,7 @@ public class StudentService {
         }
 
         if (student.getEmail().equals(studentToUpdate.getEmail())) {
-            throw new CannotUpdateStudent("First name was not changed");
+            throw new CannotUpdateStudent("Email name was not changed");
         } else {
 
             studentToUpdate.setEmail(student.getEmail());
@@ -109,7 +109,7 @@ public class StudentService {
         }
 
         if (student.getPhoneNumber().equals(studentToUpdate.getPhoneNumber())) {
-            throw new CannotUpdateStudent("First name was not changed");
+            throw new CannotUpdateStudent("Phone number was not changed");
         } else {
             studentToUpdate.setPhoneNumber(student.getPhoneNumber());
         }
