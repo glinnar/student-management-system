@@ -28,7 +28,7 @@ public class StudentService {
 
     public void createStudent(Student student) {
         if (student.getFirstName().isEmpty() || student.getLastName().isEmpty() || student.getEmail().isEmpty()) {
-            throw new StudentInformationIsNull("Fields: " + student.getFirstName() + student.getLastName() + student.getEmail() + "cannot be empty! Please provide a value");
+            throw new StudentInformationIsNull("FirstName: " + " LastName: "  + "Email: " +  " cannot be empty! Please provide a value");
         }
         entityManager.persist(student);
 
@@ -57,6 +57,10 @@ public class StudentService {
             throw new StudentNotFound("Can´t find selected student");
         }
 
+        if (student.getFirstName().isEmpty()) {
+            throw new StudentInformationIsNull("FirstName: " + " cannot be empty! Please provide a value");
+        }
+
         if (student.getFirstName().equals(studentToUpdate.getFirstName())) {
             throw new CannotUpdateStudent("First name was not changed");
         } else {
@@ -76,6 +80,10 @@ public class StudentService {
             throw new StudentNotFound("Can´t find selected student");
         }
 
+        if (student.getLastName().isEmpty()) {
+            throw new StudentInformationIsNull("LastName: " + " cannot be empty! Please provide a value");
+        }
+
         if (student.getLastName().equals(studentToUpdate.getLastName())) {
             throw new CannotUpdateStudent("Last name was not changed");
         } else {
@@ -91,6 +99,10 @@ public class StudentService {
 
         if (studentToUpdate == null) {
             throw new StudentNotFound("Can´t find selected student");
+        }
+
+        if (student.getEmail().isEmpty()) {
+            throw new StudentInformationIsNull("Email: " + " cannot be empty! Please provide a value");
         }
 
         if (student.getEmail().equals(studentToUpdate.getEmail())) {

@@ -27,12 +27,13 @@ public class StudentRest {
         return Response.status(Response.Status.CREATED).entity(student).build();
 
     }
+
     @Path("{id}")
     @GET
-    public Response getStudent(@PathParam("id")Long id){
+    public Response getStudent(@PathParam("id") Long id) {
         Student foundStudent = studentService.findStudentById(id);
 
-        if(foundStudent == null){
+        if (foundStudent == null) {
             throw new StudentNotFound("Can´t find Studens with selected ID : " + id);
         }
         return Response.status(Response.Status.OK).entity(foundStudent).build();
@@ -43,7 +44,7 @@ public class StudentRest {
     public Response getAllStudents() {
         List<Student> foundStudents = studentService.getAllStudents();
 
-        if(foundStudents.isEmpty()){
+        if (foundStudents.isEmpty()) {
             throw new StudentNotFound("Can´t find Students");
         }
 
@@ -52,7 +53,7 @@ public class StudentRest {
 
     @Path("delete/{id}")
     @DELETE
-    public Response deleteStudent(@PathParam("id")Long id){
+    public Response deleteStudent(@PathParam("id") Long id) {
         studentService.deleteStudent(id);
         return Response.status(Response.Status.OK).build();
     }
@@ -68,38 +69,39 @@ public class StudentRest {
 
     @Path("update/firstname/{id}")
     @PATCH
-    public Response patchFirstName(@PathParam("id")Long id ,Student student){
-        Student updatedStudent = studentService.updateFirstName(id,student);
+    public Response patchFirstName(@PathParam("id") Long id, Student student) {
+        Student updatedStudent = studentService.updateFirstName(id, student);
 
         return Response.status(Response.Status.ACCEPTED).entity(updatedStudent).build();
+
     }
 
     @Path("update/lastname/{id}")
     @PATCH
-    public Response patchLastName(@PathParam("id") Long id , Student student){
-        Student updatedStudent = studentService.updateLastName(id,student);
+    public Response patchLastName(@PathParam("id") Long id, Student student) {
+        Student updatedStudent = studentService.updateLastName(id, student);
         return Response.status(Response.Status.ACCEPTED).entity(updatedStudent).build();
     }
 
     @Path("update/email/{id}")
     @PATCH
-    public Response patchEmail(@PathParam("id")Long id , Student student){
-        Student updatedStudent = studentService.updateEmail(id,student);
+    public Response patchEmail(@PathParam("id") Long id, Student student) {
+        Student updatedStudent = studentService.updateEmail(id, student);
         return Response.status(Response.Status.ACCEPTED).entity(updatedStudent).build();
 
     }
 
     @Path("update/phonenumber/{id}")
     @PATCH
-    public Response patchPhoneNumber(@PathParam("id")Long id , Student student){
-        Student updatedStudent = studentService.updatePhoneNumber(id,student);
+    public Response patchPhoneNumber(@PathParam("id") Long id, Student student) {
+        Student updatedStudent = studentService.updatePhoneNumber(id, student);
 
         return Response.status(Response.Status.ACCEPTED).entity(updatedStudent).build();
     }
 
     @Path("findStudent")
     @GET
-    public Response getStudentLastName(@QueryParam("lastName") String lastName){
+    public Response getStudentLastName(@QueryParam("lastName") String lastName) {
         List<Student> studentList = studentService.getLastName(lastName);
 
         return Response.status(Response.Status.FOUND).entity(studentList).build();
