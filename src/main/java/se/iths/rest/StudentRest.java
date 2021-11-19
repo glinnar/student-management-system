@@ -57,13 +57,13 @@ public class StudentRest {
         return Response.status(Response.Status.OK).build();
     }
 
-   @Path("update")
-    @PUT
-    public Response updateStudent(Student student){
-         studentService.updateStudent(student);
-        return Response.status(Response.Status.ACCEPTED).entity(student).build();
-
-   }
+//   @Path("update")
+//    @PUT
+//    public Response updateStudent(Student student){
+//         studentService.updateStudent(student);
+//        return Response.status(Response.Status.ACCEPTED).entity(student).build();
+//
+//   }
 
 
     @Path("update/firstname/{id}")

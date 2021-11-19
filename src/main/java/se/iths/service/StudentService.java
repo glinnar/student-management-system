@@ -26,7 +26,7 @@ public class StudentService {
 
 
     public void createStudent(Student student) {
-        if(student.getFirstName().isEmpty() || student.getLastName().isEmpty() || student.getEmail().isEmpty()){
+        if (student.getFirstName().isEmpty() || student.getLastName().isEmpty() || student.getEmail().isEmpty()) {
             throw new StudentInformationIsNull("Fields: " + student.getFirstName() + student.getLastName() + student.getEmail() + "cannot be empty! Please provide a value");
         }
         entityManager.persist(student);
@@ -42,16 +42,13 @@ public class StudentService {
         }
     }
 
-    public Student updateStudent(Student student) {
-
-        if (student.getId() == null) {
-            throw new StudentNotFound("Can´t find selected Student");
-        }
-
-        return entityManager.merge(student);
-
-
-    }
+//    public void updateStudent(Student student) {
+//        if (student.getId() == null) {
+//            throw new StudentNotFound("Can´t find selected Student");
+//        }
+//            entityManager.merge(student);
+//
+//    }
 
     public Student updateFirstName(Long id, Student student) {
         Student studentToUpdate = entityManager.find(Student.class, id);
