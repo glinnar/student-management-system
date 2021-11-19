@@ -2,6 +2,7 @@ package se.iths.service;
 
 import se.iths.entity.Student;
 import se.iths.exceptions.CannotUpdateStudent;
+import se.iths.exceptions.StudentInformationIsNull;
 import se.iths.exceptions.StudentNotFound;
 
 import javax.persistence.EntityManager;
@@ -25,6 +26,9 @@ public class StudentService {
 
 
     public void createStudent(Student student) {
+        if(student.getFirstName().isEmpty() || student.getLastName().isEmpty() || student.getEmail().isEmpty()){
+            throw new StudentInformationIsNull("Fields: " + student.getFirstName() + student.getLastName() + student.getEmail() + "cannot be empty! Please provide a value");
+        }
         entityManager.persist(student);
 
     }
@@ -40,7 +44,7 @@ public class StudentService {
 
     public Student updateStudent(Student student) {
 
-        if (student == null) {
+        if (student.getId() == null) {
             throw new StudentNotFound("Can´t find selected Student");
         }
 
