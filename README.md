@@ -14,13 +14,13 @@ Create a Student:
 
 READ
 Get all students:
-Method: GET
-Endpoint: localhost:8080/student-management-system/api/v1/student/getstudents
+* Method: GET
+* Endpoint: localhost:8080/student-management-system/api/v1/student/getstudents
 
 
 Get student by ID:
-Method: GET
-Endpoint: localhost:8080/student-management-system/api/v1/student/{id}
+* Method: GET
+* Endpoint: localhost:8080/student-management-system/api/v1/student/{id}
 
 
 
