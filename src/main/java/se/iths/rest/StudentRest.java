@@ -1,8 +1,10 @@
 package se.iths.rest;
 
 import se.iths.entity.Student;
+import se.iths.entity.Subject;
 import se.iths.exceptions.StudentNotFound;
 import se.iths.service.StudentService;
+import se.iths.service.SubjectService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;
@@ -16,9 +18,13 @@ public class StudentRest {
 
     @Inject
     StudentService studentService;
+    @Inject
+    SubjectService subjectService;
+
+    // NÅNTING MED DETTA SKALL GÖRAS
 
 
-    @Path("create/")
+    @Path("create")
     @POST
     public Response createStudent(Student student) {
 
@@ -107,7 +113,12 @@ public class StudentRest {
         return Response.status(Response.Status.FOUND).entity(studentList).build();
     }
 
-    // FIXA PATCHMETODENRNA SÅ MAN KAN ÄNDRA SAKER
+    @Path("addSubject/{id}")
+    @POST
+    public Response addSubjects(@PathParam("id") Long id,Subject subject){
+        Student student1 = studentService.addSubject(id,subject);
+        return Response.status(Response.Status.CREATED).entity(student1).build();
+    }
 
 
 }

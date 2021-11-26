@@ -1,6 +1,7 @@
 package se.iths.service;
 
 import se.iths.entity.Student;
+import se.iths.entity.Subject;
 import se.iths.exceptions.CannotUpdateStudent;
 import se.iths.exceptions.StudentInformationIsNull;
 import se.iths.exceptions.StudentNotFound;
@@ -136,6 +137,16 @@ public class StudentService {
                 .setParameter("lastName", lastName)
                 .getResultList();
     }
+
+    public Student addSubject(Long id, Subject subject){
+        Student foundStudent = entityManager.find(Student.class,id);
+        foundStudent.addSubjects(subject);
+
+        return foundStudent;
+
+    }
+
+
 
 
 }
