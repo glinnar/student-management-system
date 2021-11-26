@@ -65,3 +65,10 @@ UPDATE Phonenumber
 }
 ```
 
+
+GET All Info about a Subject
+* Method GET
+* Endpoint: localhost:8080/student-management-system/api/v1/subjects/getsubjects
+
+
+
